@@ -1,6 +1,6 @@
 # Minimal SpreadSheet with reactjs
 
-![test image size](./src/assets/demo.gif){:height="auto" width="250px"}
+<img src="./src/assets/demo.gif" width="350" height="auto">
 
 This repo contain a poc for spread sheet in reactjs with the `SUM` and `SUBTRACT` formulas.
 To use the formula, do a double click in the cell and then write the formula with the selected positions
