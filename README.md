@@ -1,4 +1,4 @@
-# Minimal SpreadSheet with reactjs
+# SpreadSheet with reactjs
 
 <img src="./src/assets/demo.gif" width="640" height="auto">
 
