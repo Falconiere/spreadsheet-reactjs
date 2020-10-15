@@ -51,6 +51,7 @@ function Cell ({ defaultValue, canBeEditable, position }) {
   const handleDoubleClick = e => {
     if (!canBeEditable) return null
     setIsEditable(true)
+    setState({ currentCellPosition: position })
     if (inputRef.current) { inputRef.current.focus() }
   }
 
