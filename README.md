@@ -12,6 +12,6 @@ To use the formula, do a double click in the cell and then write the formula wit
   <li>SUBTRACT: ex.: =SUBTRACT(A2,A3)</li>
 </ul>
 
-### Running the app
+### To run
 
 - yarn install && yarn start
