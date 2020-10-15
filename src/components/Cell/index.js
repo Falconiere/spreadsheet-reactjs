@@ -14,23 +14,28 @@ function Cell ({ defaultValue, canBeEditable, position }) {
 
   const isSum = value => value.match(/=sum/i)
   const isSubtract = value => value.match(/=subtract/i)
+  const isNumber = value => (/^[0-9]*$/).test(value)
 
   const hasDefinedCell = value => value.match(/(?<=\()(.*)(?=\))/)
   const getCellToFormula = definedCells => Array.isArray(definedCells) && definedCells[0].split(',')
 
+  const getRealNumberToCalculate = (key) => {
+    return !rows[key] && !isNumber(key) ? 0 : isNumber(key) ? key : getValue(rows[key])
+  }
+
   const doSum = (value, cellsToSum) => {
     return cellsToSum.reduce((acc, p) => {
       const key = p.toUpperCase()
-      const v = !rows[key] ? 0 : getValue(rows[key])
-      return parseFloat(acc) + parseFloat(v)
+      const realNumber = getRealNumberToCalculate(key)
+      return parseFloat(acc) + parseFloat(realNumber)
     }, 0)
   }
 
   const doSubtract = (value, cellsToSum) => {
     return cellsToSum.reduce((acc, p) => {
       const key = p.toUpperCase()
-      const v = !rows[key] ? 0 : getValue(rows[key])
-      return acc === null ? parseFloat(v) : parseFloat(acc) - parseFloat(v)
+      const realNumber = getRealNumberToCalculate(key)
+      return acc === null ? parseFloat(realNumber) : parseFloat(acc) - parseFloat(realNumber)
     }, null)
   }
 
