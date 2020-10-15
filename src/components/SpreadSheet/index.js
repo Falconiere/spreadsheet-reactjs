@@ -30,7 +30,7 @@ function SpreadSheet () {
             <tr>
               <th></th>
               {LETTERS.map((letter, index) => (
-                <TD key={index * 2} isGray>
+                <TD key={letter + index} isGray>
                   <Cell canBeEditable={false} defaultValue={letter}/>
                 </TD>
               ))}
@@ -38,8 +38,8 @@ function SpreadSheet () {
           </thead>
           <tbody>
             {LETTERS.map((letter, rowNumber) => (
-              <tr key={rowNumber * 2}>
-                <TD key={Math.random()} isGray>
+              <tr key={letter + rowNumber}>
+                <TD isGray>
                   <Cell canBeEditable={false} defaultValue={rowNumber + 1}/>
                 </TD>
                 {LETTERS.map((letter, columnNumber) => (
